@@ -37,8 +37,8 @@ public class _1_Palindrome {
         
         String string = "lokesh";
         String str = "racecar";
-        System.out.println(isPalindrome(str));
-        System.out.println(Palindrome(string));
+        System.out.println(isPalindrome(string));
+        System.out.println(Palindrome(str));
 
     }
     
