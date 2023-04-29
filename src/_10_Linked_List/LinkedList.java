@@ -238,6 +238,46 @@ public class LinkedList {
          }
          return true;
     }
+
+    // #####################################################################################
+    public boolean hasCycle(){
+
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+    // #####################################################################################
+    public void deleteCycle(){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow){
+                slow = head;
+                Node prev = null;
+                while (fast!= slow){
+                    slow = slow.next;
+                    prev = fast;
+                    fast = fast.next;
+                }
+                prev.next = null;
+            }
+            else{
+                return;
+            }
+        }
+        printll();
+    }
     // #####################################################################################
     // #####################################################################################
     // #####################################################################################
@@ -248,8 +288,8 @@ public class LinkedList {
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addFirst(3);
-        ll.addFirst(2);
-        ll.addFirst(1);
+        ll.addFirst(4);
+        ll.addFirst(5);
 //        ll.addMiddle(2, 4);
         System.out.println(ll.size);
 
@@ -263,7 +303,9 @@ public class LinkedList {
 //        ll.printll();
 //        ll.deleteNthFromLast(2);
 //        System.out.println();
-        System.out.println(ll.checkPalindrome());
+//        System.out.println(ll.checkPalindrome());
 
+        System.out.println(ll.hasCycle());
+        ll.deleteCycle();
     }
 }
