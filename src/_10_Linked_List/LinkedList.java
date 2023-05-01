@@ -23,10 +23,9 @@ public class LinkedList {
         size++;
         if(head == null){
             head = tail = node;
+            return;
         }
-
         node.next = head;
-
         head = node;
     }
     // #####################################################################################
@@ -35,6 +34,7 @@ public class LinkedList {
         size++;
         if(head == null){
             head = tail = node;
+            return;
         }
 
         tail.next = node;
@@ -240,44 +240,101 @@ public class LinkedList {
     }
 
     // #####################################################################################
-    public boolean hasCycle(){
+//    public boolean hasCycle(){
+//
+//        Node slow = head;
+//        Node fast = head;
+//
+//        while(fast != null && fast.next != null){
+//            slow = slow.next;
+//            fast = fast.next.next;
+//            if (fast == slow){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+    // #####################################################################################
+//    public void deleteCycle(){
+//        Node slow = head;
+//        Node fast = head;
+//
+//        while (fast != null && fast.next != null){
+//            slow = slow.next;
+//            fast = fast.next.next;
+//            if(fast == slow){
+//                slow = head;
+//                Node prev = null;
+//                while (fast!= slow){
+//                    slow = slow.next;
+//                    prev = fast;
+//                    fast = fast.next;
+//                }
+//                prev.next = null;
+//            }
+//            else{
+//                return;
+//            }
+//        }
+//        printll();
+//    }
 
+    public Node getMid(Node head){
         Node slow = head;
-        Node fast = head;
-
+        Node fast = head.next;  // We want the mid-node to be SECOND node in a 4 size LL && 3rd in 6 size ll
+        // The previous method gives 3rd as mid in 4 size
         while(fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
-            if (fast == slow){
-                return true;
-            }
         }
-        return false;
+        return slow;
     }
-    // #####################################################################################
-    public void deleteCycle(){
-        Node slow = head;
-        Node fast = head;
+    private Node merge(Node head1, Node head2){
+        Node mergedLL = new Node(-1);
+        Node temp = mergedLL;
 
-        while (fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
-            if(fast == slow){
-                slow = head;
-                Node prev = null;
-                while (fast!= slow){
-                    slow = slow.next;
-                    prev = fast;
-                    fast = fast.next;
-                }
-                prev.next = null;
+        while (head1 != null && head2 != null){
+            if(head1.data <= head2.data){
+                temp.next = head1;
+                head1 = head1.next;
+                temp = temp.next;
             }
-            else{
-                return;
+            else {
+                temp.next = head2;
+                head2 = head2.next;
+                temp = temp.next;
             }
         }
-        printll();
+        while(head1 != null){
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+        while(head2 != null){
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return mergedLL.next;
     }
+    public Node mergeSort(Node head){
+
+        if(head != null || head.next == null){
+            return head;
+        }
+        // find mid
+        Node mid = getMid(head);
+
+        // mergeSort in Left and Right Linked Lists;
+        Node rHead = mid.next;
+        mid.next = null;
+        Node leftHead = mergeSort(head);
+        Node rightHead = mergeSort(rHead);
+
+        // Merge both parts
+        return merge(leftHead, rightHead);
+    }
+
     // #####################################################################################
     // #####################################################################################
     // #####################################################################################
@@ -290,10 +347,12 @@ public class LinkedList {
         ll.addFirst(3);
         ll.addFirst(4);
         ll.addFirst(5);
+//        ll.addLast(9);
+//        ll.addLast(10);
 //        ll.addMiddle(2, 4);
         System.out.println(ll.size);
 
-//        ll.printll();
+        ll.printll();
         System.out.println();
 //        ll.iteSearch(4);
 //        ll.iteSearch(100);
@@ -305,7 +364,10 @@ public class LinkedList {
 //        System.out.println();
 //        System.out.println(ll.checkPalindrome());
 
-        System.out.println(ll.hasCycle());
-        ll.deleteCycle();
+//        System.out.println(ll.hasCycle());
+//        ll.deleteCycle();
+
+        ll.head = ll.mergeSort(ll.head);
+        ll.printll();
     }
 }

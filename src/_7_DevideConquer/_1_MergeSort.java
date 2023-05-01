@@ -62,7 +62,5 @@ public class _1_MergeSort {
 
         mergeSort(arr, 0, arr.length-1);
         printarr(arr);
-
-
     }
 }
