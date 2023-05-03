@@ -137,7 +137,7 @@ public class LinkedList {
             }
         }
     }
-// #####################################################################################
+// ##########################################################################################
 
     public void recursiveSearch(int sdata, Node head){
         int idx = 0;
@@ -152,7 +152,7 @@ public class LinkedList {
         }
     }
 
-    // #####################################################################################
+    // #######################################################################################
     public int helper(Node head, int key){  // 0(n) for call stack
         if(head == null){
             return -1;
@@ -171,7 +171,7 @@ public class LinkedList {
     public int recSearch(int key){
         return helper(head, key);
     }
-    // #####################################################################################
+    // #######################################################################################
     public void reversell(){
 
         Node prev = null;
@@ -186,7 +186,7 @@ public class LinkedList {
         }
         head = prev; // as current is now NULL
     }
-    // #####################################################################################
+    // #######################################################################################
     public void deleteNthFromLast(int n){
         Node temp = head;
         int i =1;
@@ -199,7 +199,7 @@ public class LinkedList {
         printll();
         return;
     }
-    // #####################################################################################
+    // ########################################################################################
     public Node mid(Node head){  // This returns the NODE at mid-position NOT THE INDEX
         Node slow = head;
         Node fast = head;
@@ -214,11 +214,11 @@ public class LinkedList {
 //        int mid = size/2;
         // ORR
         Node midNode = mid(head); // This returns the NODE at mid-position NOT THE INDEX 🔴
+
         // REVERSE
         Node prev = null;
         Node curr = midNode;
         Node next;
-
         while (curr != null){
             next = curr.next;
             curr.next = prev;
@@ -239,7 +239,7 @@ public class LinkedList {
          return true;
     }
 
-    // #####################################################################################
+    // ########################################################################################
 //    public boolean hasCycle(){
 //
 //        Node slow = head;
@@ -254,7 +254,7 @@ public class LinkedList {
 //        }
 //        return false;
 //    }
-    // #####################################################################################
+    // ########################################################################################
 //    public void deleteCycle(){
 //        Node slow = head;
 //        Node fast = head;
@@ -278,6 +278,8 @@ public class LinkedList {
 //        }
 //        printll();
 //    }
+
+    // ########################################################################################
 
     public Node getMid(Node head){
         Node slow = head;
@@ -334,6 +336,44 @@ public class LinkedList {
         // Merge both parts
         return merge(leftHead, rightHead);
     }
+    // #####################################################################################
+    public void ZigZagLL(){
+
+        Node slow = head;
+        Node fast = head.next;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+
+        // Reverse
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node newRHead = prev;
+        Node newLHead = head;
+
+        // Merging
+        Node nextL, nextR;
+        while(newLHead != null && newRHead != null){
+            nextL = newLHead.next;
+            newLHead.next = newRHead;
+            nextR = newRHead.next;
+            newRHead.next = nextL;
+            newLHead = nextL;
+            newRHead = nextR;
+        }
+
+    }
 
     // #####################################################################################
     // #####################################################################################
@@ -367,7 +407,9 @@ public class LinkedList {
 //        System.out.println(ll.hasCycle());
 //        ll.deleteCycle();
 
-        ll.head = ll.mergeSort(ll.head);
+//        ll.head = ll.mergeSort(ll.head);
+//        ll.printll();
+        ll.ZigZagLL();
         ll.printll();
     }
 }
