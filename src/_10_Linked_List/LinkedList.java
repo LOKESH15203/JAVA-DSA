@@ -55,6 +55,7 @@ public class LinkedList {
         }
         System.out.print("null");
     }
+
     // #####################################################################################
     public void addMiddle(int idx, int data){
 
@@ -381,12 +382,15 @@ public class LinkedList {
     public static void main(String[] args) {
 
         LinkedList ll = new LinkedList();
+        LinkedList ll2 = new LinkedList();
 
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addFirst(3);
         ll.addFirst(4);
         ll.addFirst(5);
+
+
 //        ll.addLast(9);
 //        ll.addLast(10);
 //        ll.addMiddle(2, 4);
