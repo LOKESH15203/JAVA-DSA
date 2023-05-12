@@ -1,13 +1,18 @@
 package Stack;
 import java.util.*;
 
-public class _3_JCF_Stack {
+public class _3_PushAtBot {
 
-    public void pushAtBottom(Stack<Integer> st ,int val){
-        while(!st.isEmpty()){
-            st.pop();
+    public static void pushAtBottom(Stack<Integer> st ,int val){
+        if(st.isEmpty()) {
+            st.push(val);
+            return;
         }
+        int top = st.pop();
+        pushAtBottom(st, val);
+        st.push(top);
     }
+
 
     public static void main(String[] args) {
 
@@ -20,6 +25,12 @@ public class _3_JCF_Stack {
         st.pop();
         System.out.println(st.peek());
 
+        while (!st.isEmpty()){
+            System.out.print(st.peek() + " | ");
+            st.pop();
+        }
+
+        pushAtBottom(st, 10);
         while (!st.isEmpty()){
             System.out.print(st.peek() + " | ");
             st.pop();
