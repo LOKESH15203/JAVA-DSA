@@ -1,9 +1,8 @@
 package Stack;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
-public class _NextGreaterElem {
+public class _8_NextGreaterElem {
 
     public static void nextGre(int arr[]){
 
