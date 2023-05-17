@@ -6,10 +6,31 @@ public class _9_DuplicatePrarenthesis {
 
     public static boolean dupPar(String str){
         Stack<Character> st = new Stack<>();
-        int i = 0;
-        char ch = str.charAt(i);
+        int i;
+        for(i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+                if(ch == ')'){
+                    int count = 0;
+                    while(st.peek() != '('){
+                        st.pop();
+                        count++;
+                    }
+                    if(count <1)
+                        return true; // DUPLICATE exists
+                    else{
+                        st.pop();
+                    }
+                }
+                else {
+                    st.push(ch);
+            }
+        }
+        return false;
     }
     public static void main(String[] args) {
+
+        String str = "(a+b)";
+        System.out.println(dupPar(str));
 
     }
 }
