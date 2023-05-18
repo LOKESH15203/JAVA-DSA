@@ -14,6 +14,7 @@ public class _9_DuplicatePrarenthesis {
                     while(st.peek() != '('){
                         st.pop();
                         count++;
+                        int classic;
                     }
                     if(count <1)
                         return true; // DUPLICATE exists
