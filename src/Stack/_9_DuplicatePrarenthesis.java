@@ -31,7 +31,8 @@ public class _9_DuplicatePrarenthesis {
     public static void main(String[] args) {
 
         String str = "(a+b)";
-        System.out.println(dupPar(str));
+        String str1 = "((a+b))";
+        System.out.println(dupPar(str1));
 
     }
 }
