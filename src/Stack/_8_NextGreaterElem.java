@@ -21,8 +21,8 @@ public class _8_NextGreaterElem {
             st.push(i);
         }
         for(int i=0; i<nextGreater.length; i++){
-            System.out.println(nextGreater[i] + " ");
-        }
+            System.out.print(nextGreater[i] + " ");
+         }
         System.out.println();
     }
 
