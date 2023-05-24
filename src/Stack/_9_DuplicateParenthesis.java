@@ -2,7 +2,7 @@ package Stack;
 
 import java.util.Stack;
 
-public class _9_DuplicatePrarenthesis {
+public class _9_DuplicateParenthesis {
 
     public static boolean dupPar(String str){
         Stack<Character> st = new Stack<>();
