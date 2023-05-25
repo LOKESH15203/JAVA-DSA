@@ -1,6 +1,5 @@
-package Stack;
+package _11_Stack;
 
-import java.util.SortedMap;
 import java.util.Stack;
 
 public class _6_StockSpan {

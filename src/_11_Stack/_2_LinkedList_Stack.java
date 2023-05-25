@@ -1,4 +1,4 @@
-package Stack;
+package _11_Stack;
 
 public class _2_LinkedList_Stack {
 
