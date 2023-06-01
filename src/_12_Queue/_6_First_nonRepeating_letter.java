@@ -15,7 +15,7 @@ public class _6_First_nonRepeating_letter {
             q.add(ch);
             freq[ch-'a']++;
 
-            while (!q.isEmpty() && freq[q.peek() - 'a'] > 1){  ////////////////////////////
+            while (!q.isEmpty() && freq[q.peek() - 'a'] > 1){
                 q.remove();
             }
 
