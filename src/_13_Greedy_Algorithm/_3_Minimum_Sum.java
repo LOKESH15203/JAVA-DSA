@@ -7,8 +7,8 @@ public class _3_Minimum_Sum {
 
     public static void main(String[] args) {
 
-//        int A[] = {1, 2, 3};
-//        int B[] = {2, 1, 3};
+        int C[] = {1, 2, 3};
+        int D[] = {2, 1, 3};
 
         int A[] = {4, 1, 8, 7};
         int B[] = {2, 3, 6, 5};
