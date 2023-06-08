@@ -1,5 +1,10 @@
 package _13_Greedy_Algorithm;
 
+// All jobs start at the same time
+// All jobs should end before deadline
+// So we need to decide which tasks to do and in what order
+
+
 import javax.print.attribute.standard.JobPriority;
 import java.util.*;
 
@@ -17,6 +22,7 @@ public class _5_Job_Sequence {
         }
     }
 
+    // Main function
     public static void main(String[] args) {
         //              Deadline, Profit
         int jobsInfo[][] = {{4, 20}, {1, 10}, {1, 40}, {1, 30}};
