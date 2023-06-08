@@ -30,6 +30,31 @@ public class _1_Preorder_Node {
 
             return newNode;
         }
+
+        public static void preTraversal(Node root){
+            if(root == null){
+                return;
+            }
+            System.out.print(root.data + " ");
+            preTraversal(root.left);
+            preTraversal(root.right);
+        }
+        public static void InTraversal(Node root){
+            if(root == null){
+                return;
+            }
+            preTraversal(root.left);
+            System.out.print(root.data + " ");
+            preTraversal(root.right);
+        }
+        public static void postTraversal(Node root){
+            if(root == null){
+                return;
+            }
+            preTraversal(root.left);
+            preTraversal(root.right);
+            System.out.print(root.data + " ");
+        }
     }
 
     public static void main(String[] args) {
@@ -37,5 +62,10 @@ public class _1_Preorder_Node {
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
         System.out.println(root.data);
+        tree.preTraversal(root);
+        System.out.println();
+        tree.InTraversal(root);
+        System.out.println();
+        tree.postTraversal(root);
     }
 }
