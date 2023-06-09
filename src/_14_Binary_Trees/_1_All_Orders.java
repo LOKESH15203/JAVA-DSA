@@ -110,6 +110,31 @@ public class _1_All_Orders {
 //                height += height(root.right);
 //            }
         }
+
+        // ###################################################################################
+        // ###################################################################################
+
+        public static int noOfNodes(Node root){
+            if(root == null){
+                return 0;
+            }
+            int lCount = noOfNodes(root.left);
+            int rCount = noOfNodes(root.right);
+            return lCount+rCount + 1;
+        }
+
+        // ###################################################################################
+        // ###################################################################################
+
+        public static int sumOfNodes(Node root){
+            if(root == null){
+                return 0;
+            }
+            int lSum = sumOfNodes(root.right);
+            int rSum = sumOfNodes(root.left);
+
+            return lSum+rSum+root.data;
+        }
     }
 
 
@@ -127,5 +152,7 @@ public class _1_All_Orders {
         System.out.println();
         tree.LevelOrder(root);
         System.out.println(tree.height(root));
+        System.out.println(tree.noOfNodes(root));
+        System.out.println(tree.sumOfNodes(root));
     }
 }
