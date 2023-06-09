@@ -1,8 +1,9 @@
 package _14_Binary_Trees;
 
-import org.w3c.dom.CDATASection;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class _1_Preorder_Node {
+public class _1_All_Orders {
 
     static class Node {
         int data;
@@ -39,6 +40,7 @@ public class _1_Preorder_Node {
             preTraversal(root.left);
             preTraversal(root.right);
         }
+
         public static void InTraversal(Node root){
             if(root == null){
                 return;
@@ -55,7 +57,41 @@ public class _1_Preorder_Node {
             postTraversal(root.right);
             System.out.print(root.data + " ");
         }
+
+        public static void LevelOrder(Node root){
+            if(root == null){
+                return;
+            }
+
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);  // Just to print a new line each time a null is peeked in the Queue
+
+            while (!q.isEmpty()){
+                Node currNode = q.remove();
+                if(currNode == null){    // to print new line
+                    System.out.println();
+                    if(q.isEmpty()){
+                        break;
+                    }
+                    else {
+                        q.add(null);     // again add null to print new line after the next level
+                    }
+                }else {              // if the node in the queue is not-null and has some value
+                    System.out.print("      "+currNode.data + " ");
+                    if(currNode.left != null){
+                        q.add(currNode.left);    // and left child of the currNode
+                    }
+                    if(currNode.right != null){
+                        q.add(currNode.right);
+                    }
+                }
+            }
+
+        }
     }
+
+
 
     public static void main(String[] args) {
         int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -67,5 +103,7 @@ public class _1_Preorder_Node {
         tree.InTraversal(root);
         System.out.println();
         tree.postTraversal(root);
+        System.out.println();
+        tree.LevelOrder(root);
     }
 }
