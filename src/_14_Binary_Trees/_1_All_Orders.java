@@ -32,6 +32,8 @@ public class _1_All_Orders {
             return newNode;
         }
 
+        // ###################################################################################
+        // ###################################################################################
         public static void preTraversal(Node root){
             if(root == null){
                 return;
@@ -57,6 +59,9 @@ public class _1_All_Orders {
             postTraversal(root.right);
             System.out.print(root.data + " ");
         }
+
+        // ###################################################################################
+        // ###################################################################################
 
         public static void LevelOrder(Node root){
             if(root == null){
@@ -87,7 +92,23 @@ public class _1_All_Orders {
                     }
                 }
             }
+        }
+        // ###################################################################################
+        // ###################################################################################
 
+        public static int height(Node root){
+            if(root == null){
+                return 0;
+            }
+            int lh = height(root.left);
+            int rh = height(root.right);
+            return Math.max(lh, rh) + 1;
+
+//            if(height(root.left) > height(root.right)){
+//                height += height(root.left)
+//            }else {
+//                height += height(root.right);
+//            }
         }
     }
 
@@ -105,5 +126,6 @@ public class _1_All_Orders {
         tree.postTraversal(root);
         System.out.println();
         tree.LevelOrder(root);
+        System.out.println(tree.height(root));
     }
 }
