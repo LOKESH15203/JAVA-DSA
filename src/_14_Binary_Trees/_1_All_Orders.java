@@ -135,6 +135,10 @@ public class _1_All_Orders {
 
             return lSum+rSum+root.data;
         }
+
+        public static void count(){
+            System.out.println("The No. ");
+        }
     }
 
 
