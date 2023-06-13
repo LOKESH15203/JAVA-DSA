@@ -19,7 +19,7 @@ public class _1_All_Orders {
 
     static class BinaryTree{
         static int idx = -1;
-        public static Node buildTree(int nodes[]){
+        public static Node buildTree(int nodes[]){ // ################################ PRE ORDER
 
             idx++;
             if(nodes[idx]== -1){
@@ -63,7 +63,7 @@ public class _1_All_Orders {
         // ###################################################################################
         // ###################################################################################
 
-        public static void LevelOrder(Node root){
+        public static void LevelOrder(Node root){  // To print a level order traversal
             if(root == null){
                 return;
             }
