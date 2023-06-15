@@ -17,7 +17,7 @@ public class _5_K_Level_Elements {
         }
     }
 
-    public static void K_th_Elem(int n, Node root) {
+    public static void K_th_Elem(int n, Node root) {  // Trying to print by Level order Traversal
         if (root == null) {
             return;
         }
@@ -27,17 +27,17 @@ public class _5_K_Level_Elements {
 
         int count = 1;
         while (!q.isEmpty()) {
-            Node currNode = null;
+            Node currNode = q.remove();
             if (currNode == null) {
                 if (q.isEmpty()) {
-                    count++;
                     break;
                 } else {
                     q.add(null);
+                    count++;
                 }
             } else {
                 if (count == n) {
-                    System.out.println(currNode.data + " ");
+                    System.out.print(currNode.data + " ");
                 }
                 if (currNode.left != null) {
                     q.add(currNode.left);    // and left child of the currNode
@@ -68,6 +68,6 @@ public class _5_K_Level_Elements {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        K_th_Elem(2, root);
+        K_th_Elem(3, root);
     }
 }
