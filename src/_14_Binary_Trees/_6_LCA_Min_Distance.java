@@ -1,7 +1,7 @@
 package _14_Binary_Trees;
 import java.util.*;
 
-public class _6_Lowest_Common_Ancestor {
+public class _6_LCA_Min_Distance {
 
     static class Node {
         int data;
@@ -114,6 +114,8 @@ public class _6_Lowest_Common_Ancestor {
 
         System.out.println(lca(root, 4, 6).data);
         System.out.println(lca2(root, 4, 5).data);
-        System.out.println(minDist(root, 4, 6));
+        System.out.println(minDist(root, 4, 6))
+
+        ;
     }
 }
