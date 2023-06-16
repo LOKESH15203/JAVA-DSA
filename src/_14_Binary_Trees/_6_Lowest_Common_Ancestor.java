@@ -32,7 +32,7 @@ public class _6_Lowest_Common_Ancestor {
         return false;
     }
 
-    public static Node lca(Node root, int n1, int n2) {
+    public static Node lca(Node root, int n1, int n2) { // TC = O(n) && SC = O(n) both Linear
         ArrayList<Node> path1 = new ArrayList<>();
         ArrayList<Node> path2 = new ArrayList<>();
         getPath(root, n1, path1);
@@ -47,7 +47,29 @@ public class _6_Lowest_Common_Ancestor {
         Node lca = path1.get(i-1);
         return lca;
     }
-//last equal node -> i-1th Node lca = path1.get(i-1); return lca;
+
+    // ##########          PREFER THIS SOLUTION         ############
+    public static Node lca2(Node root, int n1, int n2){ // TC = O(n) && SC = O(1)
+
+        if(root == null || root.data == n1 || root.data == n2){
+            return root;
+        }
+
+        Node leftLCA = lca2(root.left, n1, n2);
+        Node rightLCA = lca2(root.right, n1, n2);
+
+        if(leftLCA == null){
+            return rightLCA;
+        }
+        if(rightLCA == null){
+            return leftLCA;
+        }
+
+        return root;  // if Both left and right are null
+    }
+
+    // #################################################################################################
+
 
     public static void main(String[] args) {
         /*
@@ -67,5 +89,7 @@ public class _6_Lowest_Common_Ancestor {
         root.right.right = new Node(7);
 
         System.out.println(lca(root, 4, 6).data);
+        System.out.println(lca2(root, 4, 5).data);
+
     }
 }
