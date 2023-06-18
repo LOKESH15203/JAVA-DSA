@@ -57,7 +57,7 @@ public class _2_Max_Diameter {
         Info rInfo = maxDia(root.right);
 
         int dia = Math.max(lInfo.high + rInfo.high +1, Math.max(lInfo.dia, rInfo.dia));
-        int high = Math.max(lInfo.high, rInfo.high) + 1;
+        int high = Math.max(lInfo.high, rInfo.high) + 1;  // This helps in incrementing the values
 
         return new Info(dia, high);
     }

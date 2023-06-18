@@ -55,7 +55,7 @@ public class _6_LCA_Min_Distance {
             return root;
         }
 
-        Node leftLCA = lca2(root.left, n1, n2);
+        Node leftLCA = lca2(root.left, n1, n2);  // This receives values from all the conditions below
         Node rightLCA = lca2(root.right, n1, n2);
 
         if(leftLCA == null){
