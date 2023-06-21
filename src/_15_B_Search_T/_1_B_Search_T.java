@@ -55,6 +55,7 @@ public class _1_B_Search_T {
         }
     }
 
+    // ###################  DELETING a Node in BST
     public static Node delNode(Node root, int key) {
 
         if (key < root.data) {
@@ -80,17 +81,36 @@ public class _1_B_Search_T {
         return root;
     }
 
-        public static Node findInorderSuccessor(Node root){
-            while (root.left != null){
-                root = root.left;
-            }
-            return root;
+    public static Node findInorderSuccessor(Node root){
+        while (root.left != null){
+            root = root.left;
         }
+        return root;
+    }
+
+    // ########    Print in Range
+    public static void printFromTo(Node root, int k1, int k2){
+        if(root == null){
+            return;
+        }
+        if(root.data >= k1 && root.data <= k2){   // When root lies between k1 and k2
+            printFromTo(root.left, k1, k2);
+            System.out.print(root.data+" ");
+            printFromTo(root.right, k1, k2);
+        }
+        else if(k2 < root.data){                  // when both k1 and k2 in left Subtree
+            printFromTo(root.left, k1, k2);
+        }
+        else if(k1> root.data){                   // When both k1 and k2 in right subtree
+            printFromTo(root.right, k1, k2);
+        }
+    }
+
 
     public static void main(String[] args) {
 
         //          Making BST
-        int values[] = {5, 1, 3, 4, 2, 7};
+        int values[] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
         Node root = null;
 
         for(int i=0; i<values.length; i++){
@@ -104,9 +124,14 @@ public class _1_B_Search_T {
         //          Search in BST
 //        System.out.println(search(root, 3));
 
-        System.out.println(delNode(root, 3));
-        inOrder(root);
-        System.out.println();
+
+        //          DELETING a node
+//        System.out.println(delNode(root, 3));
+//        inOrder(root);
+//        System.out.println();
+
+        // Print in Range
+//        printFromTo(root, 5, 12);
 
     }
 }
