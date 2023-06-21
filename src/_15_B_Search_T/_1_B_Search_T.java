@@ -1,5 +1,7 @@
 package _15_B_Search_T;
 
+import java.util.ArrayList;
+
 public class _1_B_Search_T {
 
     static class Node{
@@ -107,6 +109,25 @@ public class _1_B_Search_T {
     }
 
 
+    //           Root to leaf PATHS
+    public static void rTolPaths(Node root, ArrayList<Integer> al){
+        if(root == null){
+            return;
+        }
+        al.add(root.data);                             // add Each node that is visited
+        if(root.left == null && root.right == null){   // When Reaching the leaf we get the PATH so we print the path
+            for(int i=0; i<al.size(); i++){
+                System.out.print(al.get(i)+ " -> ");
+            }
+            System.out.println("Null");
+        }
+        rTolPaths(root.left, al);
+        rTolPaths(root.right, al);
+        al.remove(al.size()-1);                   // Remove the leaf node whose path is now printed and also while backtracking removes the subParents
+    }
+
+
+
     public static void main(String[] args) {
 
         //          Making BST
@@ -130,8 +151,11 @@ public class _1_B_Search_T {
 //        inOrder(root);
 //        System.out.println();
 
-        // Print in Range
+        //          Print in RANGE
 //        printFromTo(root, 5, 12);
+
+        //          Print root to leaf path
+        rTolPaths(root, new ArrayList<>());
 
     }
 }
