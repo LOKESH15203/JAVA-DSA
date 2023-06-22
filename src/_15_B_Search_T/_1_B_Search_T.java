@@ -65,14 +65,14 @@ public class _1_B_Search_T {
         } else if (key > root.data) {
             root.right = delNode(root.right, key);
         } else {
-            if (root.left == null && root.right == null) {
+            if (root.left == null && root.right == null) {  // If the parent has no child node
                 return null;
 
             }
-            if (root.left == null) {
+            if (root.left == null) {                        // If the parent has a right child
                 return root.right;
             }
-            else if (root.right == null) {
+            else if (root.right == null) {                  // If the parent has a left child
                 return root.left;
             }
 
