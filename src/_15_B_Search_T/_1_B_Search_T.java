@@ -52,7 +52,7 @@ public class _1_B_Search_T {
         if(key < root.data){
             return search(root.left, key);
         }
-        else{
+        else{                             // Searches in Right subtree
             return search(root.right, key);
         }
     }
