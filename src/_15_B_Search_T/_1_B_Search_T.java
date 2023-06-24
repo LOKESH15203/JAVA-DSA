@@ -127,8 +127,20 @@ public class _1_B_Search_T {
     }
 
 
+    // ############          Validate BST
+    public static boolean isValidBST(Node root, Node min, Node max){
+     if(root == null)
+         return true;
+     if (min != null && root.data <= min.data)
+         return false;
+     else if (max != null && root.data >= max.data)
+        return false;
+     return isValidBST(root.left, min, root)
+             && isValidBST(root.right, root, max);
 
-    public static void main(String[] args) {
+     }
+
+        public static void main(String[] args) {
 
         //          Making BST
         int values[] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
@@ -155,7 +167,14 @@ public class _1_B_Search_T {
 //        printFromTo(root, 5, 12);
 
         //          Print root to leaf path
-        rTolPaths(root, new ArrayList<>());
+//        rTolPaths(root, new ArrayList<>());
+
+        // Validating bst
+            if(isValidBST(root, null, null)){
+                System.out.println("Valid");
+            }
+            else
+                System.out.println("InValid");
 
     }
 }
