@@ -146,7 +146,7 @@ public class _1_B_Search_T {
         int values[] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
         Node root = null;
 
-        for(int i=0; i<values.length; i++){
+        for(int i=0; i<values.length; i++){ // This enters the values in the BST making function
             root = Bst(root, values[i]);
         }
 
