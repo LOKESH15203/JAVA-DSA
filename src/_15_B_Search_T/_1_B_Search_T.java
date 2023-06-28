@@ -132,15 +132,16 @@ public class _1_B_Search_T {
     public static boolean isValidBST(Node root, Node min, Node max){
      if(root == null)
          return true;
-     if (min != null && root.data <= min.data)
+     if (min != null && root.data <= min.data) // left subtree's maximum value node < root.data
          return false;
-     else if (max != null && root.data >= max.data)
+     else if (max != null && root.data >= max.data) // root.data should be < right subtree's minimum value node
         return false;
      return isValidBST(root.left, min, root)
              && isValidBST(root.right, root, max);
 
      }
 
+     // ############        Mirror the BST
      public static void mirrorBst(Node root){//    #########  // MY method     ############
         if(root == null){
             return;
@@ -154,7 +155,6 @@ public class _1_B_Search_T {
         mirrorBst(root.right);
 
      }
-
      public static Node createMirror(Node root){ //   #########        // Course method      #########
         if(root == null){
             return null;
