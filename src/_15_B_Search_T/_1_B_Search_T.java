@@ -1,6 +1,7 @@
 package _15_B_Search_T;
 
 import java.util.ArrayList;
+import java.util.jar.JarEntry;
 
 public class _1_B_Search_T {
 
@@ -140,6 +141,31 @@ public class _1_B_Search_T {
 
      }
 
+     public static void mirrorBst(Node root){//    #########  // MY method     ############
+        if(root == null){
+            return;
+        }
+
+        Node right= root.left;
+        root.left = root.right;
+        root.right = right;
+
+        mirrorBst(root.left);
+        mirrorBst(root.right);
+
+     }
+
+     public static Node createMirror(Node root){ //   #########        // Course method      #########
+        if(root == null){
+            return null;
+        }
+        Node leftMirror = createMirror(root.left);
+        Node rightMirror = createMirror(root.right);
+
+        root.left = rightMirror;
+        root.right = leftMirror;
+        return root;
+     }
         public static void main(String[] args) {
 
         //          Making BST
@@ -170,11 +196,19 @@ public class _1_B_Search_T {
 //        rTolPaths(root, new ArrayList<>());
 
         // Validating bst
-            if(isValidBST(root, null, null)){
-                System.out.println("Valid");
-            }
-            else
-                System.out.println("InValid");
+//            if(isValidBST(root, null, null)){
+//                System.out.println("Valid");
+//            }
+//            else
+//                System.out.println("InValid");
+
+            //  Mirror BST
+//            mirrorBst(root);
+//            inOrder(root);
+//            System.out.println();
+            createMirror(root);
+            inOrder(root);
+            System.out.println();
 
     }
 }
