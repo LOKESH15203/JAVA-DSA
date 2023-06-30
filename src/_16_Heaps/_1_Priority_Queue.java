@@ -30,6 +30,7 @@ public class _1_Priority_Queue {
         while(!pq.isEmpty()){
             System.out.println(pq.peek().name + " -> "+ pq.peek().rank);
             pq.remove();
+
         }
     }
 }
