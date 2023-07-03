@@ -37,13 +37,13 @@ public class _2_HEAP {
              int minIdx = i;
 
              if(left < al.size() && al.get(minIdx) > al.get(left)){
-                 minIdx = left;
+                 minIdx = left; /////// This changes where "midIdx" is pointing
              }
              if(right < al.size() && al.get(minIdx) > al.get(right)){
                  minIdx = right;
              }
 
-             if(minIdx != i){
+             if(minIdx != i){ // if midIdx pointer changed - Bring it back.
                  // swap
                  int temp = al.get(i);
                  al.set(i, al.get(minIdx));  // al.set(index, valueToSet)
