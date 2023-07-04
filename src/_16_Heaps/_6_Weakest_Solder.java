@@ -43,7 +43,7 @@ public class _6_Weakest_Solder {
         }
 
         for (int i=0; i<k; i++){
-            System.out.println(pq.remove().idx);
+            System.out.println("R" + pq.remove().idx);
         }
     }
 }
