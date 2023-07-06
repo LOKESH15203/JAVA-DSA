@@ -18,7 +18,7 @@ public class _4_Majority_Element {
         }
 
         Set<Integer> keySet = hm.keySet();
-        for (Integer key: keySet) {
+        for (Integer key: keySet) {                               // Just like writing key from keySet
             if(hm.get(key) > arr.length/3){
                 System.out.println(key);
             }
