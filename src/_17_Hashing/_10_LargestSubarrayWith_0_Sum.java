@@ -18,7 +18,7 @@ public class _10_LargestSubarrayWith_0_Sum {
             if(hm.containsKey(sum)){
                 len = Math.max(len, j-hm.get(sum));    // j-(index at which 15 is)
             }else {
-                hm.put(sum, j);
+                hm.put(sum, j); // add latest sum and its index
             }
         }
         System.out.println("Length of Largest subArray with sum zero is : " + len);
