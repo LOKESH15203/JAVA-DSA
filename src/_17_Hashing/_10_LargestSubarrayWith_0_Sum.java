@@ -3,8 +3,7 @@ package _17_Hashing;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class _10_LargestSubarrayWith_0_Sum {
-
+public class _10_LargestSubarrayWith_0_Sum { // O(n)
     public static void main(String[] args) {
         int[] arr = {15, -2, 2, -8, 1, 7, 10};
 
