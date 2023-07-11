@@ -33,7 +33,5 @@ public class _1_Tries {
         for (int i=0; i<words.length; i++){
             insert(words[i]);
         }
-
-
     }
 }
