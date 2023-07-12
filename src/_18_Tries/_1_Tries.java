@@ -49,3 +49,22 @@ public class _1_Tries {
         System.out.println(search("there"));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Color
